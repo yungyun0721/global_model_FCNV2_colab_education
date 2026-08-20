@@ -75,7 +75,7 @@ def load_precip_model(checkpoint_file, device="cpu"):
     model.zero_grad()
     # Load weights
 
-    checkpoint = torch.load(checkpoint_file, map_location=device)
+    checkpoint = torch.load(checkpoint_file, map_location=device, weights_only=False)
 
     asset_dim = checkpoint["model_state"][
         tuple(checkpoint["model_state"])[1]
