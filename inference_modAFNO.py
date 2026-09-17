@@ -134,7 +134,9 @@ def main(input_folder, save_folder, IC_time,
                 ):
                     out = model(total_data, t_norm)
             # out = model(total_data, t_norm)
-            out = out.detach().numpy()
+            # backto CPU
+            out = out.float().cpu().numpy()
+            del total_data, t_norm
             out *= input_scale
             out += input_center    
             np.save(os.path.join(save_folder, f'output_weather_{target_time:0>3}h'),out.squeeze())
