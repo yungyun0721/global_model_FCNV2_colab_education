@@ -126,12 +126,15 @@ def main(input_folder, save_folder, IC_time,
             model = model.to(modAFNO_device)
             model.eval()
             print(f'start predict {target_time:0>3}h')
-            
+
             with torch.inference_mode():
-                with torch.autocast(
-                    device_type="cuda",
-                    dtype=torch.float16
-                ):
+                if modAFNO_device == "cuda":
+                    with torch.autocast(
+                        device_type="cuda",
+                        dtype=torch.float16
+                    ):
+                        out = model(total_data, t_norm)
+                else:
                     out = model(total_data, t_norm)
             # out = model(total_data, t_norm)
             # backto CPU
