@@ -104,12 +104,12 @@ def main(input_folder, save_folder, IC_time,
     start_i = 0
     for i in range(len(files)):
         # data1 = np.load(os.path.join(input_folder,files[i]))
-        data1 = np.load(os.path.join(input_folder,f'output_weather_{(start_i+i)*6}h.npy'))
+        data1 = np.load(os.path.join(input_folder,f'output_weather_{((start_i+i)*6):0>3}h.npy'))
         x1_data = data1[:,:-1,:].copy()
         x1_data[60:73,:,:] = rh_to_q(data1[60:,:-1,:],data1[47:60,:-1,:],pressure_level)
         x1_data[  :73,:,:] = (x1_data[:73,:,:]-input_center)/input_scale
         
-        data2 = np.load(os.path.join(input_folder,f'output_weather_{(start_i+i+1)*6}h.npy'))
+        data2 = np.load(os.path.join(input_folder,f'output_weather_{((start_i+i+1)*6):0>3}h.npy'))
         x2_data = data2[:,:-1,:].copy()
         x2_data[60:73,:,:] = rh_to_q(data2[60:,:-1,:],data2[47:60,:-1,:],pressure_level)
         x2_data[:73,:,:]   = (x2_data[:73,:,:]-input_center)/input_scale
