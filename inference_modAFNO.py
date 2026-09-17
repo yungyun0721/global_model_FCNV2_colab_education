@@ -87,7 +87,7 @@ def main(input_folder, save_folder, IC_time,
     # for i in range(len(files)):
     # IC_time = "2025072400"
     # modAFNO_device = 'cpu'
-    save_folder = 'test_interpolation_IFS'
+    # save_folder = 'test_interpolation_IFS'
     os.makedirs(save_folder, exist_ok=True)
 
     IC_time = datetime.strptime(IC_time,"%Y%m%d%H").strftime("%Y-%m-%dT%H")
