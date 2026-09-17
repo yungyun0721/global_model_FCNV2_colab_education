@@ -125,7 +125,7 @@ def main(input_folder, save_folder, IC_time,
             t_norm = t_norm.to(modAFNO_device)
             model = model.to(modAFNO_device)
             model.eval()
-            print(f'start predict {target_time}h')
+            print(f'start predict {target_time:0>3}h')
             
             with torch.inference_mode():
                 with torch.autocast(
@@ -138,8 +138,7 @@ def main(input_folder, save_folder, IC_time,
             out *= input_scale
             out += input_center    
             np.save(os.path.join(save_folder, f'output_weather_{target_time:0>3}h'),out.squeeze())
-            print(f'save {target_time}h')
-    # intro_data = torch.Tensor(intro_data)
+        # intro_data = torch.Tensor(intro_data)
 
 
 if __name__ == '__main__':
