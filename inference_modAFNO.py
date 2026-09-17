@@ -102,7 +102,7 @@ def main(input_folder, save_folder, IC_time,
     # intro_data = np.full([len(files),155,720,1440],0.0)
     static_data = np.concatenate([sincos_latlon,orography,lsm], axis=0)
     start_i = 0
-    for i in range(len(files)):
+    for i in range(len(files)-1):
         # data1 = np.load(os.path.join(input_folder,files[i]))
         data1 = np.load(os.path.join(input_folder,f'output_weather_{((start_i+i)*6):0>3}h.npy'))
         x1_data = data1[:,:-1,:].copy()

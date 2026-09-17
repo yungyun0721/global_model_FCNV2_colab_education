@@ -58,7 +58,7 @@ def plot_figure(data_source_file,save_file):
         plt.ylim([3,47])
         plt.colorbar(contourf)
         plt.title(f'+{i} hour, 850 mb Wind Speed')
-        plt.savefig(f'{save_file}new_predict_{i:0>3}h.png',dpi=200)
+        plt.savefig(f'{save_file}/new_predict_{i:0>3}h.png',dpi=200)
         plt.close()
 
 if __name__ == "__main__":
