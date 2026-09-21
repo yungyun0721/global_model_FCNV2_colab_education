@@ -26,12 +26,21 @@ The atmospheric, surface, land-sea mask, and surface geopotential fields are all
 !pip install -q -U xarray zarr gcsfs fsspec dask
 !pip install -q netcdf4 cfgrib pygrib
 
-!wget -q -O PTC_download_ERA5_from_google_for_model_input.py \
-    https://raw.githubusercontent.com/yungyun0721/global_model_FCNV2_colab_education/main/different_IC_for_WN2/PTC_download_ERA5_from_google_for_model_input.py
+!wget -q -O download_ERA5_from_google_for_model_input.py \
+    https://raw.githubusercontent.com/yungyun0721/global_model_FCNV2_colab_education/main/different_IC_for_WN2/download_ERA5_from_google_for_model_input.py
+    
+!wget -q -O download_GFS_from_ncep_for_model_input.py \
+    https://raw.githubusercontent.com/yungyun0721/global_model_FCNV2_colab_education/main/different_IC_for_WN2/download_GFS_from_ncep_for_model_input.py
+
 
 ```
 ```python
-!python PTC_download_ERA5_from_google_for_model_input.py \
+!python download_ERA5_from_google_for_model_input.py \
+    -t 2025072400 \
+    -f 120 \
+    -s input_data
+
+!python download_GFS_from_ncep_for_model_input.py \
     -t 2025072400 \
     -f 120 \
     -s input_data
@@ -39,6 +48,7 @@ The atmospheric, surface, land-sea mask, and surface geopotential fields are all
 eval_inputs = xarray.open_dataset('input_data/inputs_data.nc')
 eval_forcings = xarray.open_dataset('input_data/forcings_data.nc')
 ```
+
 
 Continue running the remaining WeatherNext 2 demo cells. The new `eval_inputs` and `eval_forcings` replace the example initial conditions and forcings loaded by the official notebook.
 
