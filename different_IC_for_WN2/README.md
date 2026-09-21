@@ -29,6 +29,8 @@ The atmospheric, surface, land-sea mask, and surface geopotential fields are all
 !wget -q -O PTC_download_ERA5_from_google_for_model_input.py \
     https://raw.githubusercontent.com/yungyun0721/global_model_FCNV2_colab_education/main/different_IC_for_WN2/PTC_download_ERA5_from_google_for_model_input.py
 
+```
+```python
 !python PTC_download_ERA5_from_google_for_model_input.py \
     -t 2025072400 \
     -f 120 \
