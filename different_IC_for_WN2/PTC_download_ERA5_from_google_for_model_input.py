@@ -15,6 +15,7 @@ add the code after "Extract training and eval data"
 
 !pip install -q -U xarray zarr gcsfs fsspec dask
 !pip install -q netcdf4 cfgrib pygrib
+!wget https://raw.githubusercontent.com/yungyun0721/global_model_FCNV2_colab_education/main/different_IC_for_WN2/PTC_download_ERA5_from_google_for_model_input.py
 !python PTC_download_ERA5_from_google_for_model_input.py -t 2025072400 -f 120 -s input_data
 eval_inputs = xarray.open_dataset('input_data/inputs_data.nc')
 eval_forcings = xarray.open_dataset('input_data/forcings_data.nc')
