@@ -13,18 +13,21 @@ The atmospheric, surface, land-sea mask, and surface geopotential fields are all
 
 - [WeatherNext repository](https://github.com/google-deepmind/weathernext)
 - [Official WeatherNext 2 Colab demo](https://github.com/google-deepmind/weathernext/blob/main/docs/weathernext2/wn2_demo.ipynb)
+- [ERA5 input downloader](https://github.com/yungyun0721/global_model_FCNV2_colab_education/blob/main/different_IC_for_WN2/PTC_download_ERA5_from_google_for_model_input.py)
 
 ## Usage in Google Colab
 
 1. Open the official [WeatherNext 2 demo notebook](https://github.com/google-deepmind/weathernext/blob/main/docs/weathernext2/wn2_demo.ipynb) in Google Colab.
 2. Connect to a Colab runtime.
-3. Upload `PTC_download_ERA5_from_google_for_model_input.py` to the Files panel on the right side of Colab. The file should be available as `/content/PTC_download_ERA5_from_google_for_model_input.py`.
-4. Run the official notebook through the cell named **Extract training and eval data**.
-5. Add a new code cell immediately after that cell and paste the following code:
+3. Run the official notebook through the cell named **Extract training and eval data**.
+4. Add a new code cell immediately after that cell and paste the following code. The downloader will be fetched directly from GitHub, so no manual file upload is needed.
 
 ```python
 !pip install -q -U xarray zarr gcsfs fsspec dask
 !pip install -q netcdf4 cfgrib pygrib
+
+!wget -q -O PTC_download_ERA5_from_google_for_model_input.py \
+    https://raw.githubusercontent.com/yungyun0721/global_model_FCNV2_colab_education/main/different_IC_for_WN2/PTC_download_ERA5_from_google_for_model_input.py
 
 !python PTC_download_ERA5_from_google_for_model_input.py \
     -t 2025072400 \
