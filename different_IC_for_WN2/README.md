@@ -1,4 +1,4 @@
-# ERA5 and NCEP GFS Initial Conditions for WeatherNext 2
+# ERA5 Initial Conditions for WeatherNext 2
 
 This directory provides a simple way to run WeatherNext 2 with a different ERA5 initial condition.
 
@@ -40,10 +40,6 @@ The atmospheric, surface, land-sea mask, and surface geopotential fields are all
     -f 120 \
     -s input_data
 
-# !python download_GFS_from_ncep_for_model_input.py \
-#     -t 2025072400 \
-#     -f 120 \
-#     -s input_data
 
 eval_inputs = xarray.open_dataset('input_data/inputs_data.nc')
 eval_forcings = xarray.open_dataset('input_data/forcings_data.nc')
