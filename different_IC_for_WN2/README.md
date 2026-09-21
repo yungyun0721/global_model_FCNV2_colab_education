@@ -39,8 +39,7 @@ The atmospheric, surface, land-sea mask, and surface geopotential fields are all
     -t 2025072400 \
     -f 120 \
     -s input_data
-
-
+    
 eval_inputs = xarray.open_dataset('input_data/inputs_data.nc')
 eval_forcings = xarray.open_dataset('input_data/forcings_data.nc')
 ```
