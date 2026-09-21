@@ -292,6 +292,14 @@ def save_netcdf(dataset, output_path):
     print(f"Saved: {output_path}")
 
 
+def remove_grib_files(grib_paths):
+    """Remove the two downloaded GFS files after successful conversion."""
+    for grib_path in grib_paths:
+        grib_path = Path(grib_path)
+        grib_path.unlink(missing_ok=True)
+        print(f"Removed: {grib_path}")
+
+
 def main(IC_time, save_folder, forecast_hours):
     initial_time = datetime.datetime.strptime(IC_time, "%Y%m%d%H")
     if initial_time.hour not in (0, 6, 12, 18):
@@ -310,6 +318,7 @@ def main(IC_time, save_folder, forecast_hours):
     forcings = make_forcings(initial_time, forecast_hours)
     save_netcdf(inputs, output_folder / "inputs_data.nc")
     save_netcdf(forcings, output_folder / "forcings_data.nc")
+    remove_grib_files(grib_paths)
 
     print(
         f"Initialization: {initial_time:%Y-%m-%d %H:%M} UTC; "
