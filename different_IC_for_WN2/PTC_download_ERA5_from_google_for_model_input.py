@@ -12,6 +12,7 @@ degree grid is subsampled at the exact output coordinates, without averaging.
 """
 """
 add the code after "Extract training and eval data"
+
 !pip install -q -U xarray zarr gcsfs fsspec dask
 !pip install -q netcdf4 cfgrib pygrib
 !python PTC_download_ERA5_from_google_for_model_input.py -t 2025072400 -f 120 -s input_data
